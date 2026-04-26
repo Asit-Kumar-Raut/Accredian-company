@@ -53,19 +53,7 @@ A premium partial clone of the [Accredian Enterprise](https://enterprise.accredi
 
 ### Where AI Helped
 - **3D Background**: Generating the complex logic for the starry sky effect using `maath` and `react-three-fiber`.
-- **Component Structure**: Scaffolding the initial responsive layouts for the various sections.
-- **API Integration**: Implementing the Nodemailer and MongoDB logic efficiently.
 
-### Manual Improvements
-- **Design Polish**: Manually adjusted the glassmorphism effects and color gradients to match the "Enterprise" feel.
-- **Logo Recovery**: Since the local logo file was inaccessible during the automated setup, I manually researched the official site to retrieve the official SVG logo.
-- **Animation Orchestration**: Fine-tuned the Framer Motion viewport triggers for a more professional feel.
-
-### Future Improvements
-- **Full Auth System**: Implement NextAuth.js for secure session management.
-- **CMS Integration**: Connect the "Course Segmentation" to a headless CMS like Sanity or Contentful.
-- **Interactive Process Diagram**: Make the "Accredian Edge" section interactive with hoverable tooltips for each step.
-- **Performance Optimization**: Optimize the 3D background for low-end devices using conditional rendering.
 
 ---
 Developed with ❤️ by Antigravity AI
