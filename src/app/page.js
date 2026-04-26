@@ -1,4 +1,5 @@
 'use client';
+// Build trigger: 2026-04-26
 
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
