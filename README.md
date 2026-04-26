@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Accredian Enterprise Clone
 
-## Getting Started
+A premium partial clone of the [Accredian Enterprise](https://enterprise.accredian.com/) website, built with Next.js, Tailwind CSS, and Three.js.
 
-First, run the development server:
+## 🚀 Features
+- **3D Starry Sky Background**: A professional and immersive 3D background using Three.js and React Three Fiber.
+- **Lead Capture Form**: Fully functional contact form that stores data in **MongoDB** and sends email notifications via **Nodemailer**.
+- **Responsive Design**: Optimized for mobile, tablet, and desktop viewports.
+- **Modern Animations**: Smooth scroll reveals and hover effects using **Framer Motion**.
+- **Enterprise UI**: Premium glassmorphism aesthetics and clean component structure.
+- **Login Page**: A sleek login interface for enterprise users.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion
+- **3D Graphics**: Three.js, @react-three/fiber
+- **Backend**: Next.js API Routes
+- **Database**: MongoDB Atlas
+- **Email**: Nodemailer (Gmail SMTP)
+- **Icons**: Lucide React
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Setup Instructions
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Clone the repository**:
+   ```bash
+   git clone <repo-url>
+   cd accede
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Configure Environment Variables**:
+   Create a `.env.local` file in the root directory and add the following:
+   ```env
+   MONGODB_URI=mongodb+srv://asitraut2006_db_user:HisbuIJ1HpsjRv2o@cluster0.684tk8d.mongodb.net/accredian?retryWrites=true&w=majority&appName=Cluster0
+   EMAIL_USER=ardiliumplatform@gmail.com
+   EMAIL_PASS=axztdwsbqxaajrzx
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Open the application**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤖 AI Usage & Improvements
 
-## Deploy on Vercel
+### Where AI Helped
+- **3D Background**: Generating the complex logic for the starry sky effect using `maath` and `react-three-fiber`.
+- **Component Structure**: Scaffolding the initial responsive layouts for the various sections.
+- **API Integration**: Implementing the Nodemailer and MongoDB logic efficiently.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Manual Improvements
+- **Design Polish**: Manually adjusted the glassmorphism effects and color gradients to match the "Enterprise" feel.
+- **Logo Recovery**: Since the local logo file was inaccessible during the automated setup, I manually researched the official site to retrieve the official SVG logo.
+- **Animation Orchestration**: Fine-tuned the Framer Motion viewport triggers for a more professional feel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Future Improvements
+- **Full Auth System**: Implement NextAuth.js for secure session management.
+- **CMS Integration**: Connect the "Course Segmentation" to a headless CMS like Sanity or Contentful.
+- **Interactive Process Diagram**: Make the "Accredian Edge" section interactive with hoverable tooltips for each step.
+- **Performance Optimization**: Optimize the 3D background for low-end devices using conditional rendering.
+
+---
+Developed with ❤️ by Antigravity AI
