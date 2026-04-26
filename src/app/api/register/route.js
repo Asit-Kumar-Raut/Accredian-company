@@ -13,6 +13,7 @@ const getLocalUsers = () => {
 };
 
 const saveLocalUser = (user) => {
+  if (process.env.NODE_ENV === 'production') return; // Vercel is read-only
   const users = getLocalUsers();
   const index = users.findIndex(u => u.email === user.email);
   if (index > -1) {
@@ -21,7 +22,6 @@ const saveLocalUser = (user) => {
     users.push(user);
   }
   
-  // Ensure directory exists
   const dir = path.dirname(DATA_PATH);
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -61,7 +61,11 @@ export async function POST(req) {
       dbSuccess = true;
       console.log('User saved to MongoDB');
     } catch (dbError) {
-      console.warn('MongoDB failed, using fallback storage:', dbError.message);
+      console.warn('MongoDB failed:', dbError.message);
+      if (process.env.NODE_ENV === 'production') {
+        return NextResponse.json({ message: 'Database connection failed. Please check MongoDB settings.' }, { status: 500 });
+      }
+      
       const users = getLocalUsers();
       const existingUser = users.find(u => u.email === email);
       if (existingUser && existingUser.status === 'verified') {

@@ -28,7 +28,10 @@ export async function POST(req) {
         }, { status: 200 });
       }
     } catch (dbError) {
-      console.warn('MongoDB failed during login, using fallback storage');
+      console.warn('MongoDB failed during login');
+      if (process.env.NODE_ENV === 'production') {
+        return NextResponse.json({ message: 'Database connection failed' }, { status: 500 });
+      }
       const users = getLocalUsers();
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {

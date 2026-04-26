@@ -12,13 +12,13 @@ const getLocalUsers = () => {
 };
 
 const updateLocalUserStatus = (email, status) => {
+  if (process.env.NODE_ENV === 'production') return;
   const users = getLocalUsers();
   const index = users.findIndex(u => u.email === email);
   if (index > -1) {
     users[index].status = status;
     delete users[index].otp;
     
-    // Ensure directory exists
     const dir = path.dirname(DATA_PATH);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
@@ -46,7 +46,10 @@ export async function POST(req) {
         return NextResponse.json({ message: 'Account verified successfully' }, { status: 200 });
       }
     } catch (dbError) {
-      console.warn('MongoDB failed during verification, using fallback storage');
+      console.warn('MongoDB failed during verification');
+      if (process.env.NODE_ENV === 'production') {
+        return NextResponse.json({ message: 'Database connection failed' }, { status: 500 });
+      }
       const users = getLocalUsers();
       const user = users.find(u => u.email === email && u.otp === otp);
       if (user) {
